@@ -1,0 +1,835 @@
+[gd_scene load_steps=30 format=3 uid="uid://dc87nmphs1hi0"]
+
+[ext_resource type="Texture2D" uid="uid://3lf4m46edxxc" path="res://Assets/UI_Sprites/IMG_20240804_130219.png" id="1_05bj8"]
+[ext_resource type="Texture2D" uid="uid://rkcdsoejn5hy" path="res://Assets/UI_Sprites/2k white.jpg" id="1_tpasf"]
+[ext_resource type="Script" uid="uid://ckyr8cjjs6aii" path="res://Scripts/main_menu.gd" id="2_670dp"]
+[ext_resource type="Texture2D" uid="uid://q11mxkgv4xhm" path="res://temporal/87cbff7d6f8d0b79e8a6e03b5557583e.jpg" id="3_jttjd"]
+[ext_resource type="AudioStream" uid="uid://cvf5qki27wm8" path="res://Assets/Audio/Katherine_Theme-main.mp3" id="3_ndbmv"]
+[ext_resource type="Shader" uid="uid://cpcum3dgfip8u" path="res://Shaders/tape.gdshader" id="5_8dduc"]
+[ext_resource type="Texture2D" uid="uid://db02myhlo5e3g" path="res://temporal/WhiteMap.jpeg" id="6_kpovl"]
+[ext_resource type="FontFile" uid="uid://drcj0nqg48mdv" path="res://Assets/UI_Sprites/Junction-bold.otf" id="6_ndbmv"]
+[ext_resource type="Theme" uid="uid://nntoh2ss57k2" path="res://Assets/Import/KatherineClassic_theme.tres" id="7_1btkb"]
+[ext_resource type="Texture2D" uid="uid://cxsu6lecprfko" path="res://temporal/istockphoto-498886379-612x612.jpg" id="7_uy6a2"]
+[ext_resource type="PackedScene" uid="uid://kpl5rhcn6a4i" path="res://Escenas/settings.tscn" id="9_b0o1t"]
+[ext_resource type="Texture2D" uid="uid://dipi3vcdb7jdq" path="res://Assets/UI_Sprites/back-button_icon-pressed.png" id="13_q7xu8"]
+[ext_resource type="Texture2D" uid="uid://ijhouku5nlja" path="res://Assets/UI_Sprites/back-button_icon-unpressed.png" id="14_no6cf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1trd"]
+
+[sub_resource type="Animation" id="Animation_b02l8"]
+resource_name = "Menu_fximage"
+length = 6.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 2.5, 2.6, 2.85, 3.65, 4, 4.2, 4.35, 4.55, 5, 5.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_m0a4y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t04f5"]
+_data = {
+&"Menu_fximage": SubResource("Animation_b02l8"),
+&"RESET": SubResource("Animation_m0a4y")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7xu8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.920113, 0, 0.198511, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndbmv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.911639, 0.00601119, 3.85046e-07, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ndbmv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7xu8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_no6cf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ec0tp"]
+shader = ExtResource("5_8dduc")
+shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/samples = 2
+shader_parameter/crease_noise = 1.0
+shader_parameter/crease_opacity = 0.5
+shader_parameter/filter_intensity = 0.1
+shader_parameter/tape_crease_smear = 0.2
+shader_parameter/tape_crease_intensity = 0.2
+shader_parameter/tape_crease_jitter = 0.1
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 1.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1btkb"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1btkb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8o58i"]
+
+[sub_resource type="Animation" id="Animation_ndbmv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sub-texto:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sub-texto:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1btkb"]
+resource_name = "show_credits"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sub-texto:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sub-texto:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 6.0132, 6.5076),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7.0076),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(7.03333, 7.9908),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ndbmv"]
+_data = {
+&"RESET": SubResource("Animation_ndbmv"),
+&"show_credits": SubResource("Animation_1btkb")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_1btkb")
+script = ExtResource("2_670dp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ndbmv")
+autoplay = true
+parameters/looping = true
+
+[node name="Fondo" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(579, 314)
+scale = Vector2(2, 2)
+texture = ExtResource("1_tpasf")
+
+[node name="PanelStart" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SideLogo" type="Panel" parent="PanelStart"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 34.0
+offset_top = 15.0
+offset_right = 522.0
+offset_bottom = 118.0
+
+[node name="TextureLogo" type="TextureRect" parent="PanelStart/SideLogo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.5
+offset_top = -53.0
+offset_right = 2173.5
+offset_bottom = 585.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_05bj8")
+
+[node name="Label" type="Label" parent="PanelStart/SideLogo"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -9.0
+offset_right = -30.0
+offset_bottom = 22.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.858405, 0, 0.169276, 1)
+theme_override_fonts/font = ExtResource("6_ndbmv")
+theme_override_font_sizes/font_size = 30
+text = "ALPHA"
+
+[node name="PanelBotones" type="Panel" parent="PanelStart"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 74.0
+offset_top = -162.0
+offset_right = 501.0
+offset_bottom = 226.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelStart/PanelBotones"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_game" type="Button" parent="PanelStart/PanelBotones/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7_1btkb")
+theme_override_font_sizes/font_size = 36
+text = "Jugar"
+
+[node name="Button_settings" type="Button" parent="PanelStart/PanelBotones/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7_1btkb")
+theme_override_font_sizes/font_size = 36
+text = "Configuración"
+
+[node name="Button_info" type="Button" parent="PanelStart/PanelBotones/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7_1btkb")
+theme_override_font_sizes/font_size = 36
+text = "Acerca de"
+
+[node name="Button_quit" type="Button" parent="PanelStart/PanelBotones/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7_1btkb")
+theme_override_font_sizes/font_size = 36
+text = "Salir"
+
+[node name="Panel" type="Panel" parent="PanelStart"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.713
+anchor_top = 0.5
+anchor_right = 0.713
+anchor_bottom = 0.5
+offset_left = -20.3761
+offset_top = -20.0
+offset_right = 19.6239
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a1trd")
+
+[node name="87Cbff7d6f8d0b79e8a6e03b5557583e" type="Sprite2D" parent="PanelStart/Panel"]
+position = Vector2(44, 7)
+scale = Vector2(2.56, 2.56)
+texture = ExtResource("3_jttjd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelStart/Panel/87Cbff7d6f8d0b79e8a6e03b5557583e"]
+libraries = {
+&"": SubResource("AnimationLibrary_t04f5")
+}
+autoplay = "Menu_fximage"
+
+[node name="Label_leyenda" type="Label" parent="PanelStart"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -54.0
+offset_right = 424.0
+offset_bottom = -19.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "© 2025 TENMX Games"
+vertical_alignment = 1
+
+[node name="Label_versionado" type="Label" parent="PanelStart"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -395.0
+offset_top = -56.0
+offset_right = -31.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("7_1btkb")
+theme_override_font_sizes/font_size = 25
+text = "v.0.1.0 Alpha TB1 (Test-Build 1)"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PanelGame" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PanelGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PanelDown" type="Panel" parent="PanelGame"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -550.0
+offset_top = -112.0
+offset_right = 550.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="PanelGame/PanelDown"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 47.0
+offset_top = -12.5
+offset_right = 167.0
+offset_bottom = 13.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Dificultad:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelGame/PanelDown"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.525
+anchor_top = 0.017
+anchor_right = 1.0
+anchor_bottom = 0.979
+offset_left = 0.499939
+offset_top = -0.632
+offset_bottom = 0.0159988
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="Bt_Practice" type="Button" parent="PanelGame/PanelDown/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.933333, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.937255, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ndbmv")
+text = "Práctica"
+flat = true
+
+[node name="Bt_Easy" type="Button" parent="PanelGame/PanelDown/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.933333, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.937255, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ndbmv")
+text = "Fácil"
+flat = true
+
+[node name="Bt_Normal" type="Button" parent="PanelGame/PanelDown/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.933333, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.937255, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ndbmv")
+text = "Normal"
+flat = true
+
+[node name="Bt_Hard" type="Button" parent="PanelGame/PanelDown/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.933333, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.937255, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ndbmv")
+text = "Dificil"
+flat = true
+
+[node name="HidePanelButton" type="TextureButton" parent="PanelGame"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 23.0
+offset_right = 112.0
+offset_bottom = 114.0
+texture_normal = ExtResource("13_q7xu8")
+texture_pressed = ExtResource("14_no6cf")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PanelGame" type="Panel" parent="PanelGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -433.0
+offset_top = -295.0
+offset_right = 544.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ndbmv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelGame/PanelGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="box1" type="Panel" parent="PanelGame/PanelGame/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_q7xu8")
+
+[node name="TextureRect" type="TextureRect" parent="PanelGame/PanelGame/HBoxContainer/box1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -119.0
+offset_right = 178.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_uy6a2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="PanelGame/PanelGame/HBoxContainer/box1"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -106.0
+offset_right = 85.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Comenzar"
+flat = true
+
+[node name="box2" type="Panel" parent="PanelGame/PanelGame/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.47
+theme_override_styles/panel = SubResource("StyleBoxEmpty_no6cf")
+
+[node name="Label_descrip" type="Label" parent="PanelGame/PanelGame/HBoxContainer/box2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Dificultad Fácil: Las cartas cambian de lugar y son faciles de detectarlas. Los sustos tendrán poca aparición durante este modo. Katherine cuenta con una tolerancia de 65% cada vez que aparezca, lo que impide que sea agresiva y te ataque con frecuencia, podrá ayudarte en encontrar su cuerpo y las herramientas necesarias para desenterrarla. La pala y el pico no cambian de lugar."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Shader" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_ec0tp")
+position = Vector2(573.875, 328.75)
+scale = Vector2(1.84102, 1.04766)
+texture = ExtResource("6_kpovl")
+
+[node name="PanelSettings" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings" parent="PanelSettings" instance=ExtResource("9_b0o1t")]
+layout_mode = 1
+
+[node name="SettingsHide_button" type="TextureButton" parent="PanelSettings"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = 118.0
+offset_bottom = 116.0
+pivot_offset = Vector2(64, 64)
+texture_normal = ExtResource("13_q7xu8")
+texture_pressed = ExtResource("14_no6cf")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PanelInfo" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PanelInfo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HideInfo_button" type="TextureButton" parent="PanelInfo"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 23.0
+offset_right = 127.0
+offset_bottom = 129.0
+texture_normal = ExtResource("13_q7xu8")
+texture_pressed = ExtResource("14_no6cf")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelInfo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -465.0
+offset_top = -174.0
+offset_right = 465.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "Tomarás el rol de un detective que, investigará la muerte de una chica de 24 años llamada Katherine, adentrándote en el interior del Parque Nacional de Green valley. Tendrás que retomar pistas y evidencias sueltas en aquel lugar que fue cerrado días después del terrible suceso.
+Trata de resolver el caso decidiste tomar debido a que varios policias temían de actos paranormales y libera el alma en pena de Katherine... ¿Podrás lograrlo?"
+autowrap_mode = 2
+
+[node name="Button_next" type="Button" parent="PanelInfo"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -124.0
+offset_right = 101.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Continuar"
+
+[node name="PanelCredits" type="Panel" parent="PanelInfo"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1btkb")
+
+[node name="box" type="Panel" parent="PanelInfo/PanelCredits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.5
+offset_top = -268.5
+offset_right = 493.5
+offset_bottom = 268.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1btkb")
+
+[node name="TextureRect" type="TextureRect" parent="PanelInfo/PanelCredits/box"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.0
+offset_top = -31.5
+offset_right = 211.0
+offset_bottom = 65.5
+grow_horizontal = 2
+texture = ExtResource("1_05bj8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelInfo/PanelCredits/box"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -501.0
+offset_top = -165.0
+offset_right = 501.0
+offset_bottom = 209.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelInfo/PanelCredits/box/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "DESARROLLADO POR:
+TENMX GAMES
+
+EQUIPO DE DESARROLLO:
+Antonio \"TonyDev88\" Romero
+Ricardo Pérez
+Caleb \"Tuxedomask\"
+
+MÚSICA Y SFX:
+Ceres Symphony Studio
+
+EFECTOS VISUALES:
+Antonio Romero \"TonyDev88\""
+
+[node name="HSeparator" type="HSeparator" parent="PanelInfo/PanelCredits/box/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8o58i")
+
+[node name="Label2" type="Label" parent="PanelInfo/PanelCredits/box/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "ARTE GRÁFICA:
+Antonio Romero \"TonyDev88\"
+Caleb \"Tuxedomask\"
+Ricardo Pérez
+
+TIPOGRAFÍAS:
+Junction by xxx
+
+(C) TENMX DEVELOPMENT STUDIOS | 2025
+(C) Sector - TENMX GAMES | 2025
+(C) CERES Symphony Studio | 2025
+(C) FreezyCore System | 2025
+"
+horizontal_alignment = 2
+
+[node name="sub-texto" type="Label" parent="PanelInfo/PanelCredits/box"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -391.0
+offset_top = -37.5
+offset_right = 391.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 33
+text = "Katherine es un juego de terror inspirado en historias reales sobre feminicidios y engaños."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Anim_credits" type="AnimationPlayer" parent="PanelInfo/PanelCredits/box"]
+libraries = {
+&"": SubResource("AnimationLibrary_ndbmv")
+}
+
+[node name="Button_back" type="Button" parent="PanelInfo/PanelCredits"]
+layout_mode = 1
+offset_left = 36.0
+offset_top = 31.0
+offset_right = 152.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 35
+text = "Cerrar"
+flat = true
+
+[node name="PanelExit" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="PanelStart/PanelBotones/VBoxContainer/Button_game" to="." method="_on_button_game_pressed"]
+[connection signal="pressed" from="PanelStart/PanelBotones/VBoxContainer/Button_settings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="PanelStart/PanelBotones/VBoxContainer/Button_info" to="." method="_on_button_info_pressed"]
+[connection signal="pressed" from="PanelStart/PanelBotones/VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="PanelGame/HidePanelButton" to="." method="_on_hide_panel_button_pressed"]
+[connection signal="pressed" from="PanelSettings/SettingsHide_button" to="." method="_on_settings_hide_button_pressed"]
+[connection signal="pressed" from="PanelInfo/HideInfo_button" to="." method="_on_hide_info_button_pressed"]
+[connection signal="pressed" from="PanelInfo/Button_next" to="." method="_on_button_next_pressed"]
+[connection signal="pressed" from="PanelInfo/PanelCredits/Button_back" to="." method="_on_button_back_pressed"]

@@ -1,0 +1,138 @@
+[gd_scene load_steps=19 format=3 uid="uid://mavtejxlhimt"]
+
+[ext_resource type="Texture2D" uid="uid://c1gp62mltsfak" path="res://temporal/Mapa del parque Green Valley v2.png" id="1_vw4d7"]
+[ext_resource type="PackedScene" uid="uid://be8g5l6cl3w8e" path="res://Escenas/player.tscn" id="2_rk2a7"]
+[ext_resource type="Texture2D" uid="uid://cf422xlumft5l" path="res://temporal/DaySkyHDRI020A_2K-TONEMAPPED.jpg" id="3_a786x"]
+[ext_resource type="Shader" uid="uid://dxet5yx841cqe" path="res://Shaders/pixelScreen.gdshader" id="4_bjp5t"]
+[ext_resource type="AudioStream" uid="uid://6775iv3tiaq" path="res://Assets/Audio/Ambiente01.mp3" id="4_uw4hc"]
+[ext_resource type="PackedScene" uid="uid://ww635ir7tc7n" path="res://Escenas/interfaz_game.tscn" id="5_k730p"]
+[ext_resource type="PackedScene" uid="uid://ch3fsg2kkea0t" path="res://Assets/Import/tree_demo.tscn" id="7_4dhcw"]
+[ext_resource type="Texture2D" uid="uid://cq0slkbn5pjco" path="res://Assets/Import/ic--twotone-directions-run.png" id="7_uw4hc"]
+[ext_resource type="Texture2D" uid="uid://bvx68tiso2qjw" path="res://Assets/UI_Sprites/placeholder-map-point-svgrepo-com.png" id="8_7j1pb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0l0xm"]
+albedo_texture = ExtResource("1_vw4d7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_06rk1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qexqo"]
+size = Vector3(1.98572, 0.0940781, 1.9903)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ptmhp"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4dhcw"]
+panorama = ExtResource("3_a786x")
+
+[sub_resource type="Sky" id="Sky_17lur"]
+sky_material = SubResource("PanoramaSkyMaterial_4dhcw")
+
+[sub_resource type="Environment" id="Environment_xn8w6"]
+background_mode = 2
+background_energy_multiplier = 1.17
+sky = SubResource("Sky_17lur")
+fog_enabled = true
+fog_light_color = Color(0.423351, 0.490822, 0.591801, 1)
+fog_density = 0.02
+fog_sky_affect = 0.67
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k730p"]
+shader = ExtResource("4_bjp5t")
+shader_parameter/pixel_size = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ip4yt"]
+
+[node name="World" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(994.509, 0, 0, 0, 4, 0, 0, 0, 518.466, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_0l0xm")
+mesh = SubResource("PlaneMesh_06rk1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0055542, -0.0257683, 0.00204468)
+shape = SubResource("BoxShape3D_qexqo")
+
+[node name="Mesh demo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 261.307, 1.12341, 90.5372)
+mesh = SubResource("CapsuleMesh_ptmhp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.575119, 0.818069, 0, -0.818069, -0.575119, 0, 50.837, 0)
+light_color = Color(0.621524, 0.621524, 0.621524, 1)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_rk2a7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 819.082, 1.50996, 321.053)
+speed = 6.0
+run_speed = 12.0
+stamina_rec_rate = 7.0
+stamina_drain_rate = 12.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xn8w6")
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Canvas"]
+stream = ExtResource("4_uw4hc")
+volume_db = -6.0
+autoplay = true
+parameters/looping = true
+
+[node name="HUD" type="Control" parent="Canvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EffectShader" type="ColorRect" parent="Canvas/HUD"]
+material = SubResource("ShaderMaterial_k730p")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Interfaz_game" parent="Canvas/HUD" instance=ExtResource("5_k730p")]
+layout_mode = 1
+
+[node name="PanelStamina" type="Panel" parent="Canvas/HUD"]
+layout_mode = 1
+offset_left = 226.0
+offset_top = 12.0
+offset_right = 305.0
+offset_bottom = 87.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ip4yt")
+
+[node name="TPBar_Stamina" type="TextureProgressBar" parent="Canvas/HUD/PanelStamina"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("7_uw4hc")
+texture_progress = ExtResource("7_uw4hc")
+tint_under = Color(0.20871, 0.20871, 0.20871, 0.458824)
+
+[node name="Tree_demo" parent="." instance=ExtResource("7_4dhcw")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 263.427, 0.00119139, 90.7929)
+
+[node name="PlayerSpawnPos" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 880.08, 4.34433, 313.594)
+
+[node name="Sprite3D" type="Sprite3D" parent="PlayerSpawnPos"]
+billboard = 1
+texture = ExtResource("8_7j1pb")
+
+[node name="GridMap" type="GridMap" parent="."]
+cell_size = Vector3(1, 1, 1)

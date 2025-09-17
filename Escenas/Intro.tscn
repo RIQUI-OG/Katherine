@@ -1,0 +1,530 @@
+[gd_scene load_steps=17 format=3 uid="uid://dmfuiwlc7s7q3"]
+
+[ext_resource type="Script" uid="uid://bwp0nbprceuec" path="res://Escenas/introStartup.gd" id="1_8xosh"]
+[ext_resource type="Shader" uid="uid://f5q3n0jmjjbg" path="res://Shaders/rainfx.gdshader" id="1_bkn7a"]
+[ext_resource type="Texture2D" uid="uid://b5fe38iojt5ab" path="res://Assets/Import/Mist_bg_x128.png" id="2_6pxc3"]
+[ext_resource type="Texture2D" uid="uid://bapku8o8ecj72" path="res://Assets/UI_Sprites/LogoStartup/Graphics IDs TENMX DS.002.png" id="2_85384"]
+[ext_resource type="Shader" uid="uid://cpcum3dgfip8u" path="res://Shaders/tape.gdshader" id="2_qemv1"]
+[ext_resource type="Texture2D" uid="uid://dh8qvi35a2qfd" path="res://Assets/UI_Sprites/LogoStartup/Graphics IDs TENMX DS.003.png" id="3_qemv1"]
+[ext_resource type="Texture2D" uid="uid://d2ie5yk2p3473" path="res://Assets/UI_Sprites/LogoStartup/TENMX_Games_LogoB-color2.png" id="4_8xosh"]
+[ext_resource type="Texture2D" uid="uid://lx7eh7mqsthu" path="res://Assets/UI_Sprites/LogoStartup/TENMXDS_Icon02.png" id="6_6pxc3"]
+[ext_resource type="AudioStream" uid="uid://bmcyakbp2n3kl" path="res://Assets/Audio/Katherine_Intro_TENMX.wav" id="6_8xosh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f2b3h"]
+
+[sub_resource type="Animation" id="Animation_qemv1"]
+resource_name = "Intro"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TENMX Logo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1.41421, 4.14106),
+"update": 0,
+"values": [Vector2(1.3, 1.3), Vector2(0.7, 0.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TENMX Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333, 2.53333, 3.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.682353, 0.00392157, 0.929412, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.423529, 0.054902, 0.662745, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphic01:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.9959, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1700, -330), Vector2(630, -330)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphic01:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.9959, 3.16667, 5.9, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0352941), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphic02:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.9959, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(630, -258), Vector2(-1700, -258)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Graphic02:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.9959, 3.16667, 5.9, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Games:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.96108, 4.4),
+"transitions": PackedFloat32Array(1, 19.0273),
+"update": 0,
+"values": [Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Games:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.9, 4.13333, 7, 7.5),
+"transitions": PackedFloat32Array(1, 2.92817, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Disclaimer:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 7.33333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Disclaimer:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(7.33333, 8, 15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Parallax2D/Sprite2D:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(6.06667, 7.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Parallax2D/Sprite2D:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(7, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.32549)]
+}
+
+[sub_resource type="Animation" id="Animation_iyuwk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TENMX Logo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.3, 1.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TENMX Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphic01:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-874, -330)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphic01:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphic02:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-131, -258)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Graphic02:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Games:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Games:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Disclaimer:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Disclaimer:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Parallax2D/Sprite2D:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Parallax2D/Sprite2D:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iyuwk"]
+_data = {
+&"Intro": SubResource("Animation_qemv1"),
+&"RESET": SubResource("Animation_iyuwk")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8xosh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8xosh"]
+shader = ExtResource("1_bkn7a")
+shader_parameter/time = 0.0
+shader_parameter/drop_speed = 1.0
+shader_parameter/drop_size = 0.03
+shader_parameter/drop_density = 30.0
+shader_parameter/distortion_strength = 0.015
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iyuwk"]
+shader = ExtResource("2_qemv1")
+shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/samples = 2
+shader_parameter/crease_noise = 1.0
+shader_parameter/crease_opacity = 0.5
+shader_parameter/filter_intensity = 0.1
+shader_parameter/tape_crease_smear = 0.2
+shader_parameter/tape_crease_intensity = 0.2
+shader_parameter/tape_crease_jitter = 0.1
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 1.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.1
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8xosh")
+wait_time = 15.0
+main_scene = null
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Startup" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f2b3h")
+
+[node name="Parallax2D" type="Parallax2D" parent="Startup"]
+scale = Vector2(3, 3)
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, 132)
+repeat_size = Vector2(128, 0)
+autoscroll = Vector2(8.5, 0)
+repeat_times = 13
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Startup/Parallax2D"]
+texture = ExtResource("2_6pxc3")
+
+[node name="Graphic01" type="TextureRect" parent="Startup"]
+layout_mode = 0
+offset_left = -874.0
+offset_top = -330.0
+offset_right = 230.0
+offset_bottom = 291.0
+pivot_offset = Vector2(552, 310)
+texture = ExtResource("2_85384")
+expand_mode = 5
+
+[node name="Graphic02" type="TextureRect" parent="Startup"]
+layout_mode = 0
+offset_left = -131.0
+offset_top = -258.0
+offset_right = 973.0
+offset_bottom = 363.0
+pivot_offset = Vector2(552, 310)
+texture = ExtResource("3_qemv1")
+expand_mode = 5
+
+[node name="Games" type="TextureRect" parent="Startup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -107.0
+offset_right = 107.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(107, 107)
+texture = ExtResource("4_8xosh")
+expand_mode = 3
+
+[node name="TENMX Logo" type="TextureRect" parent="Startup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -107.0
+offset_right = 107.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3, 1.3)
+pivot_offset = Vector2(107, 107)
+texture = ExtResource("6_6pxc3")
+expand_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Startup"]
+libraries = {
+&"": SubResource("AnimationLibrary_iyuwk")
+}
+autoplay = "Intro"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Startup"]
+stream = ExtResource("6_8xosh")
+volume_db = 2.0
+
+[node name="Disclaimer" type="Panel" parent="Startup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -475.0
+offset_top = -239.0
+offset_right = 475.0
+offset_bottom = 239.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8xosh")
+
+[node name="Label" type="Label" parent="Startup/Disclaimer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -145.5
+offset_right = 287.0
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Este juego contiene escenas y elementos audiovisuales que pueden ser perturbadores para ciertas personas.
+
+Para una mejor experiencia, se recomienda jugar con audifonos."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CanvasFX" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasFX"]
+visible = false
+material = SubResource("ShaderMaterial_8xosh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vfx" type="ColorRect" parent="CanvasFX"]
+material = SubResource("ShaderMaterial_iyuwk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch3fsg2kkea0t"]
+
+[ext_resource type="PackedScene" uid="uid://nl0lmjjnkutl" path="res://Assets/Import/Models/Tree_A.gltf" id="1_yg2hi"]
+
+[node name="Tree_demo" type="Node3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_yg2hi")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)

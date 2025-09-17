@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qaxe6pc15q13"
+path="res://.godot/imported/Katherine Theme new.mp3-1d26424473d5d4c22666e46c5eda3268.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Katherine Theme new.mp3"
+dest_files=["res://.godot/imported/Katherine Theme new.mp3-1d26424473d5d4c22666e46c5eda3268.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

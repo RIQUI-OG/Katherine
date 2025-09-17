@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://be8g5l6cl3w8e"]
+
+[ext_resource type="Script" uid="uid://dcfbdq87ihta5" path="res://Escenas/player.gd" id="1_jqylw"]
+[ext_resource type="Script" uid="uid://fjk83sjrawta" path="res://Scripts/hudPlayer_manager.gd" id="2_cgfde"]
+[ext_resource type="PackedScene" uid="uid://ww635ir7tc7n" path="res://Escenas/interfaz_game.tscn" id="2_qgqwx"]
+[ext_resource type="Texture2D" uid="uid://djd6msti6640c" path="res://Assets/UI_Sprites/compass-5603633_1280.png" id="4_6njrx"]
+[ext_resource type="Texture2D" uid="uid://peffxcwyhg22" path="res://Assets/UI_Sprites/fa6-solid--person-running.png" id="4_cgfde"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xujfj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6riwg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cgfde"]
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_jqylw")
+speed = null
+run_speed = null
+jump_velocity = null
+mouse_sensitivity = 0.09
+max_stamina = 100.0
+stamina_rec_rate = null
+stamina_drain_rate = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xujfj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_6riwg")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696309, -0.119931)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" groups=["camera"]]
+far = 100.0
+
+[node name="CanvasHUD" type="Node" parent="."]
+
+[node name="CanvasPlayer" type="CanvasLayer" parent="CanvasHUD"]
+
+[node name="HUD_Player" type="Control" parent="CanvasHUD/CanvasPlayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_cgfde")
+smooth_rotation = null
+rotation_speed = null
+
+[node name="Interfaz_game" parent="CanvasHUD/CanvasPlayer/HUD_Player" instance=ExtResource("2_qgqwx")]
+layout_mode = 1
+
+[node name="PanelStamina" type="Panel" parent="CanvasHUD/CanvasPlayer/HUD_Player"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 12.0
+offset_right = 305.0
+offset_bottom = 87.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cgfde")
+
+[node name="TPBar_Stamina" type="TextureProgressBar" parent="CanvasHUD/CanvasPlayer/HUD_Player/PanelStamina"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(39, 39)
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("4_cgfde")
+texture_progress = ExtResource("4_cgfde")
+tint_under = Color(0.20871, 0.20871, 0.20871, 0.458824)
+
+[node name="Compass" type="TextureRect" parent="CanvasHUD/CanvasPlayer/HUD_Player"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -148.0
+offset_top = -145.0
+offset_right = 148.463
+offset_bottom = 151.0
+grow_horizontal = 2
+pivot_offset = Vector2(148, 148)
+texture = ExtResource("4_6njrx")
+expand_mode = 3
+stretch_mode = 4

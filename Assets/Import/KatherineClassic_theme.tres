@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://nntoh2ss57k2"]
+
+[ext_resource type="FontFile" uid="uid://bgxkk75dmvttr" path="res://Assets/UI_Sprites/Junction-regular.otf" id="1_yobcj"]
+
+[resource]
+Label/fonts/font = ExtResource("1_yobcj")

@@ -1,0 +1,355 @@
+[gd_scene load_steps=28 format=3 uid="uid://ww635ir7tc7n"]
+
+[ext_resource type="Texture2D" uid="uid://b4b42ajc32nq3" path="res://Assets/UI_Sprites/Heart_icon.png" id="1_75ru5"]
+[ext_resource type="Texture2D" uid="uid://bh047fofbbfkk" path="res://Assets/UI_Sprites/Background_joy.png" id="1_fghuo"]
+[ext_resource type="Texture2D" uid="uid://dys5qo7nff33" path="res://Assets/UI_Sprites/Damage_vignette.png" id="1_p8hrw"]
+[ext_resource type="Texture2D" uid="uid://djd6msti6640c" path="res://Assets/UI_Sprites/compass-5603633_1280.png" id="2_7xj5o"]
+[ext_resource type="Texture2D" uid="uid://be0onpimpous7" path="res://Assets/UI_Sprites/Knob_joy.png" id="2_75ru5"]
+[ext_resource type="FontFile" uid="uid://dcc1tb8o5wqt5" path="res://Assets/UI_Sprites/Redaction-Bold.otf" id="2_cmkqu"]
+[ext_resource type="Texture2D" uid="uid://cq0slkbn5pjco" path="res://Assets/Import/ic--twotone-directions-run.png" id="3_lo7vg"]
+[ext_resource type="Texture2D" uid="uid://kfiq2cwdp2ga" path="res://Assets/UI_Sprites/Run_button_unpressed.png" id="4_5qodb"]
+[ext_resource type="Texture2D" uid="uid://du7re0ddi6d4a" path="res://Assets/UI_Sprites/CrossHair_screen.png" id="4_t6lge"]
+[ext_resource type="Texture2D" uid="uid://cuyn75dp0geaq" path="res://Assets/UI_Sprites/Run_button_pressed.png" id="5_7atuf"]
+[ext_resource type="Texture2D" uid="uid://bogksx0itpks8" path="res://Assets/UI_Sprites/Interact_button_unpressed.png" id="6_8n2hg"]
+[ext_resource type="Texture2D" uid="uid://cyu6ehygbq4pv" path="res://Assets/UI_Sprites/Interact_button_pressed.png" id="7_1v0k3"]
+[ext_resource type="Texture2D" uid="uid://cl0dg1stwmkjs" path="res://Assets/UI_Sprites/Cards/Carta1.png" id="10_bvl5s"]
+[ext_resource type="Texture2D" uid="uid://bvbp4moa3lq" path="res://Assets/UI_Sprites/Interact_button.png" id="10_cmkqu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xcsk0"]
+texture = ExtResource("1_p8hrw")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8amo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7atuf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmkqu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p8hrw"]
+font = ExtResource("2_cmkqu")
+font_size = 55
+outline_size = 20
+outline_color = Color(0, 0, 0, 0.32549)
+shadow_color = Color(0, 0, 0, 0.0313726)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6lge"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p8hrw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcsk0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8hrw"]
+size = Vector2(150, 150)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lo7vg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fghuo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8n2hg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1v0k3"]
+
+[node name="Interfaz_game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TakeDamage_view" type="Panel" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.470588)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xcsk0")
+
+[node name="PanelGame" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_b8amo")
+
+[node name="Label" type="Label" parent="PanelGame"]
+self_modulate = Color(1, 1, 1, 0.67451)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -412.0
+offset_top = -62.0
+offset_right = -19.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 33
+text = "Katherine Alpha Preview"
+vertical_alignment = 1
+
+[node name="HUD" type="Panel" parent="PanelGame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.148
+offset_bottom = 0.0960007
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7atuf")
+
+[node name="PanelLife" type="Panel" parent="PanelGame/HUD"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = -40.0
+offset_right = 211.0
+offset_bottom = 40.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cmkqu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelGame/HUD/PanelLife"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Heart" type="TextureRect" parent="PanelGame/HUD/PanelLife/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 15
+size_flags_vertical = 13
+size_flags_stretch_ratio = 0.77
+texture = ExtResource("1_75ru5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelGame/HUD/PanelLife/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 15
+size_flags_vertical = 13
+text = "100"
+label_settings = SubResource("LabelSettings_p8hrw")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelGame/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -148.0
+offset_top = -145.0
+offset_right = 148.463
+offset_bottom = 151.0
+grow_horizontal = 2
+pivot_offset = Vector2(148, 148)
+texture = ExtResource("2_7xj5o")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="PanelStamina" type="Panel" parent="PanelGame/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 218.0
+offset_top = -35.0
+offset_right = 297.0
+offset_bottom = 40.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t6lge")
+
+[node name="TPBar_Stamina" type="TextureProgressBar" parent="PanelGame/HUD/PanelStamina"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("3_lo7vg")
+texture_progress = ExtResource("3_lo7vg")
+tint_under = Color(0.20871, 0.20871, 0.20871, 0.458824)
+
+[node name="CrossHair" type="TextureRect" parent="PanelGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(10, 10)
+texture = ExtResource("4_t6lge")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelTouch_UI" type="Panel" parent="PanelGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p8hrw")
+
+[node name="Pause" type="Panel" parent="PanelGame/PanelTouch_UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_bottom = 131.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xcsk0")
+
+[node name="Button_pause" type="TouchScreenButton" parent="PanelGame/PanelTouch_UI/Pause"]
+position = Vector2(20, 14)
+scale = Vector2(0.62, 0.62)
+texture_normal = ExtResource("10_cmkqu")
+shape = SubResource("RectangleShape2D_p8hrw")
+
+[node name="PanelButtons" type="Panel" parent="PanelGame/PanelTouch_UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -589.0
+offset_top = -467.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lo7vg")
+
+[node name="RunButton" type="TouchScreenButton" parent="PanelGame/PanelTouch_UI/PanelButtons"]
+position = Vector2(351, 199)
+texture_normal = ExtResource("4_5qodb")
+texture_pressed = ExtResource("5_7atuf")
+action = "run"
+
+[node name="InteractButton" type="TouchScreenButton" parent="PanelGame/PanelTouch_UI/PanelButtons"]
+position = Vector2(143, 199)
+texture_normal = ExtResource("6_8n2hg")
+texture_pressed = ExtResource("7_1v0k3")
+
+[node name="PanelJoystickTest" type="Panel" parent="PanelGame/PanelTouch_UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -342.0
+offset_right = 377.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fghuo")
+
+[node name="TextureRect" type="TextureRect" parent="PanelGame/PanelTouch_UI/PanelJoystickTest"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fghuo")
+
+[node name="TextureRect2" type="TextureRect" parent="PanelGame/PanelTouch_UI/PanelJoystickTest"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_75ru5")
+
+[node name="PanelCardView" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8n2hg")
+
+[node name="Container" type="PanelContainer" parent="PanelCardView"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -438.0
+offset_top = -306.0
+offset_right = 430.0
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1v0k3")
+
+[node name="TextureRect" type="TextureRect" parent="PanelCardView/Container"]
+layout_mode = 2
+texture = ExtResource("10_bvl5s")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PanelPause" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="Panel" parent="PanelPause"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044
+anchor_top = 0.055
+anchor_right = 0.956
+anchor_bottom = 0.945
+offset_left = 0.311996
+offset_top = -0.140003
+offset_right = -0.312012
+offset_bottom = 0.139954
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(525, 288)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelPause/Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
