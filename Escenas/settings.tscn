@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://kpl5rhcn6a4i"]
+[gd_scene load_steps=13 format=3 uid="uid://kpl5rhcn6a4i"]
 
 [ext_resource type="Theme" uid="uid://nntoh2ss57k2" path="res://Assets/Import/KatherineClassic_theme.tres" id="1_hd2hn"]
+[ext_resource type="Script" uid="uid://i1va1dnnbwcv" path="res://Scripts/settings_manager.gd" id="1_wwyfh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd2hn"]
 bg_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
@@ -30,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wwyfh")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -123,7 +125,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="HSlider" type="HSlider" parent="Panel/Panel/VBoxContainer/Musica/HBoxContainer"]
+[node name="Slider_music" type="HSlider" parent="Panel/Panel/VBoxContainer/Musica/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
@@ -328,3 +330,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.44
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ed74h")
+
+[connection signal="value_changed" from="Panel/Panel/VBoxContainer/Musica/HBoxContainer/Slider_music" to="." method="_on_slider_music_value_changed"]
