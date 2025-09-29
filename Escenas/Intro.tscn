@@ -372,7 +372,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8xosh")
 wait_time = 15.0
-main_scene = null
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1

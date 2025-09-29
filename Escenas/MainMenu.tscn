@@ -55,14 +55,6 @@ _data = {
 &"RESET": SubResource("Animation_m0a4y")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7xu8"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.920113, 0, 0.198511, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndbmv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 4
@@ -70,6 +62,14 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.911639, 0.00601119, 3.85046e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7xu8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.920113, 0, 0.198511, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ndbmv"]
 
@@ -455,8 +455,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.933333, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.937255, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ndbmv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
 text = "Práctica"
 flat = true
 
@@ -467,8 +467,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.933333, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.937255, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ndbmv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
 text = "Fácil"
 flat = true
 
@@ -479,8 +479,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.933333, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.937255, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ndbmv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
 text = "Normal"
 flat = true
 
@@ -491,8 +491,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.933333, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.937255, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ndbmv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_q7xu8")
 text = "Dificil"
 flat = true
 
