@@ -79,6 +79,7 @@ environment = SubResource("Environment_xn8w6")
 stream = ExtResource("4_uw4hc")
 volume_db = -6.0
 autoplay = true
+bus = &"Musica"
 parameters/looping = true
 
 [node name="HUD" type="Control" parent="Canvas"]
