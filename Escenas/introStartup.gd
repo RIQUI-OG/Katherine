@@ -8,4 +8,4 @@ func _ready():
        change_scene()
 
 func change_scene():
-       get_tree().change_scene_to_file(main_scene)
+     get_tree().change_scene_to_file(main_scene)
