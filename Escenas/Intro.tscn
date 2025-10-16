@@ -472,7 +472,7 @@ autoplay = "Intro"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Startup"]
 stream = ExtResource("6_8xosh")
-volume_db = 2.0
+volume_db = -25.0
 
 [node name="Disclaimer" type="Panel" parent="Startup"]
 layout_mode = 1

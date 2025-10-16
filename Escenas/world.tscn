@@ -1,13 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://mavtejxlhimt"]
+[gd_scene load_steps=14 format=3 uid="uid://mavtejxlhimt"]
 
 [ext_resource type="Texture2D" uid="uid://c1gp62mltsfak" path="res://temporal/Mapa del parque Green Valley v2.png" id="1_vw4d7"]
 [ext_resource type="PackedScene" uid="uid://be8g5l6cl3w8e" path="res://Escenas/player.tscn" id="2_rk2a7"]
 [ext_resource type="Texture2D" uid="uid://cf422xlumft5l" path="res://temporal/DaySkyHDRI020A_2K-TONEMAPPED.jpg" id="3_a786x"]
-[ext_resource type="Shader" uid="uid://dxet5yx841cqe" path="res://Shaders/pixelScreen.gdshader" id="4_bjp5t"]
 [ext_resource type="AudioStream" uid="uid://6775iv3tiaq" path="res://Assets/Audio/Ambiente01.mp3" id="4_uw4hc"]
-[ext_resource type="PackedScene" uid="uid://ww635ir7tc7n" path="res://Escenas/interfaz_game.tscn" id="5_k730p"]
 [ext_resource type="PackedScene" uid="uid://ch3fsg2kkea0t" path="res://Assets/Import/tree_demo.tscn" id="7_4dhcw"]
-[ext_resource type="Texture2D" uid="uid://cq0slkbn5pjco" path="res://Assets/Import/ic--twotone-directions-run.png" id="7_uw4hc"]
 [ext_resource type="Texture2D" uid="uid://bvx68tiso2qjw" path="res://Assets/UI_Sprites/placeholder-map-point-svgrepo-com.png" id="8_7j1pb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0l0xm"]
@@ -34,12 +31,6 @@ fog_enabled = true
 fog_light_color = Color(0.423351, 0.490822, 0.591801, 1)
 fog_density = 0.02
 fog_sky_affect = 0.67
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k730p"]
-shader = ExtResource("4_bjp5t")
-shader_parameter/pixel_size = 2.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ip4yt"]
 
 [node name="World" type="Node3D"]
 
@@ -77,52 +68,9 @@ environment = SubResource("Environment_xn8w6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Canvas"]
 stream = ExtResource("4_uw4hc")
-volume_db = -6.0
+volume_db = -30.0
 autoplay = true
 parameters/looping = true
-
-[node name="HUD" type="Control" parent="Canvas"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="EffectShader" type="ColorRect" parent="Canvas/HUD"]
-material = SubResource("ShaderMaterial_k730p")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Interfaz_game" parent="Canvas/HUD" instance=ExtResource("5_k730p")]
-layout_mode = 1
-
-[node name="PanelStamina" type="Panel" parent="Canvas/HUD"]
-layout_mode = 1
-offset_left = 226.0
-offset_top = 12.0
-offset_right = 305.0
-offset_bottom = 87.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ip4yt")
-
-[node name="TPBar_Stamina" type="TextureProgressBar" parent="Canvas/HUD/PanelStamina"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-value = 100.0
-fill_mode = 3
-nine_patch_stretch = true
-texture_under = ExtResource("7_uw4hc")
-texture_progress = ExtResource("7_uw4hc")
-tint_under = Color(0.20871, 0.20871, 0.20871, 0.458824)
 
 [node name="Tree_demo" parent="." instance=ExtResource("7_4dhcw")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 263.427, 0.00119139, 90.7929)

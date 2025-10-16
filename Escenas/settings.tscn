@@ -151,7 +151,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="HSlider" type="HSlider" parent="Panel/Panel/VBoxContainer/Musica/HBoxContainer2"]
+[node name="Slider_sfx" type="HSlider" parent="Panel/Panel/VBoxContainer/Musica/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
@@ -163,6 +163,7 @@ size_flags_stretch_ratio = 0.53
 theme_override_styles/separator = SubResource("StyleBoxEmpty_sgicm")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Panel/Panel/VBoxContainer/Musica"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/Musica/HBoxContainer3"]
@@ -177,7 +178,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="CheckButton" type="CheckButton" parent="Panel/Panel/VBoxContainer/Musica/HBoxContainer3"]
+[node name="Mute_switch" type="CheckButton" parent="Panel/Panel/VBoxContainer/Musica/HBoxContainer3"]
 layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="Panel/Panel/VBoxContainer/Musica/HBoxContainer3"]
@@ -332,3 +333,5 @@ size_flags_stretch_ratio = 0.44
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ed74h")
 
 [connection signal="value_changed" from="Panel/Panel/VBoxContainer/Musica/HBoxContainer/Slider_music" to="." method="_on_slider_music_value_changed"]
+[connection signal="value_changed" from="Panel/Panel/VBoxContainer/Musica/HBoxContainer2/Slider_sfx" to="." method="_on_slider_sfx_value_changed"]
+[connection signal="toggled" from="Panel/Panel/VBoxContainer/Musica/HBoxContainer3/Mute_switch" to="." method="_on_mute_switch_toggled"]

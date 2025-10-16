@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://ww635ir7tc7n"]
+[gd_scene load_steps=32 format=3 uid="uid://ww635ir7tc7n"]
 
 [ext_resource type="Texture2D" uid="uid://b4b42ajc32nq3" path="res://Assets/UI_Sprites/Heart_icon.png" id="1_75ru5"]
+[ext_resource type="Script" uid="uid://b1mkq6l87ujlw" path="res://Scripts/game_UImanager.gd" id="1_bdm6i"]
 [ext_resource type="Texture2D" uid="uid://bh047fofbbfkk" path="res://Assets/UI_Sprites/Background_joy.png" id="1_fghuo"]
 [ext_resource type="Texture2D" uid="uid://dys5qo7nff33" path="res://Assets/UI_Sprites/Damage_vignette.png" id="1_p8hrw"]
 [ext_resource type="Texture2D" uid="uid://djd6msti6640c" path="res://Assets/UI_Sprites/compass-5603633_1280.png" id="2_7xj5o"]
@@ -14,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://cyu6ehygbq4pv" path="res://Assets/UI_Sprites/Interact_button_pressed.png" id="7_1v0k3"]
 [ext_resource type="Texture2D" uid="uid://cl0dg1stwmkjs" path="res://Assets/UI_Sprites/Cards/Carta1.png" id="10_bvl5s"]
 [ext_resource type="Texture2D" uid="uid://bvbp4moa3lq" path="res://Assets/UI_Sprites/Interact_button.png" id="10_cmkqu"]
+[ext_resource type="PackedScene" uid="uid://kpl5rhcn6a4i" path="res://Escenas/settings.tscn" id="15_xcsk0"]
+[ext_resource type="Texture2D" uid="uid://dipi3vcdb7jdq" path="res://Assets/UI_Sprites/back-button_icon-pressed.png" id="17_s6vyr"]
+[ext_resource type="Texture2D" uid="uid://ijhouku5nlja" path="res://Assets/UI_Sprites/back-button_icon-unpressed.png" id="18_kkccy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xcsk0"]
 texture = ExtResource("1_p8hrw")
@@ -55,6 +59,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bdm6i")
 
 [node name="TakeDamage_view" type="Panel" parent="."]
 visible = false
@@ -321,7 +326,7 @@ texture = ExtResource("10_bvl5s")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="PanelPause" type="Panel" parent="."]
+[node name="PanelInventory" type="Panel" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -330,7 +335,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Box" type="Panel" parent="PanelPause"]
+[node name="Box" type="Panel" parent="PanelInventory"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.044
@@ -345,7 +350,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(525, 288)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelPause/Box"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelInventory/Box"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -353,3 +358,92 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="PanelInventory" type="PanelContainer" parent="PanelInventory/Box/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelInventory/Box/HBoxContainer/PanelInventory"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelInventory/Box/HBoxContainer/PanelInventory/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/normal_font_size = 33
+text = "Inventario"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginInv" type="MarginContainer" parent="PanelInventory/Box/HBoxContainer/PanelInventory/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelOptions" type="PanelContainer" parent="PanelInventory/Box/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelInventory/Box/HBoxContainer/PanelOptions"]
+layout_mode = 2
+
+[node name="Button_return" type="Button" parent="PanelInventory/Box/HBoxContainer/PanelOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Volver"
+
+[node name="Button_settings" type="Button" parent="PanelInventory/Box/HBoxContainer/PanelOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Opciones"
+
+[node name="Button_exit" type="Button" parent="PanelInventory/Box/HBoxContainer/PanelOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Salir"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelInventory/Box/HBoxContainer/PanelOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelInventory/Box/HBoxContainer/PanelOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_use" type="Button" parent="PanelInventory/Box/HBoxContainer/PanelOptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Usar"
+
+[node name="Button_quit" type="Button" parent="PanelInventory/Box/HBoxContainer/PanelOptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quitar"
+
+[node name="PanelSettings" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings" parent="PanelSettings" instance=ExtResource("15_xcsk0")]
+layout_mode = 1
+
+[node name="Quit settings" type="TextureButton" parent="PanelSettings"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 31.0
+offset_right = 130.0
+offset_bottom = 125.0
+texture_normal = ExtResource("17_s6vyr")
+texture_pressed = ExtResource("18_kkccy")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="PanelInventory/Box/HBoxContainer/PanelOptions/VBoxContainer/Button_return" to="." method="_on_button_return_pressed"]
+[connection signal="pressed" from="PanelInventory/Box/HBoxContainer/PanelOptions/VBoxContainer/Button_settings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="PanelInventory/Box/HBoxContainer/PanelOptions/VBoxContainer/Button_exit" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="PanelSettings/Quit settings" to="." method="_on_quit_settings_pressed"]
