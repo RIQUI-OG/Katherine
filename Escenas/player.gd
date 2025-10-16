@@ -91,3 +91,6 @@ func _physics_process(delta: float) -> void:
       
      if stamina_bar:
       stamina_bar.value = current_stamina
+     
+     if Input.is_key_pressed(KEY_E):
+          Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

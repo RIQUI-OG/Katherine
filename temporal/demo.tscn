@@ -67,7 +67,3 @@ grow_vertical = 2
 
 [node name="Player" parent="." instance=ExtResource("3_d8o1v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90699, 2.54404, 5.56887)
-speed = null
-run_speed = null
-jump_velocity = null
-stamina_rec_rate = null

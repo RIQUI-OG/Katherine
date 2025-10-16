@@ -14,12 +14,8 @@
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_jqylw")
-speed = null
-run_speed = null
-jump_velocity = null
 mouse_sensitivity = 0.09
 max_stamina = 100.0
-stamina_rec_rate = null
 stamina_drain_rate = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -49,8 +45,10 @@ script = ExtResource("2_cgfde")
 smooth_rotation = null
 rotation_speed = null
 
-[node name="Interfaz_game" parent="CanvasHUD/CanvasPlayer/HUD_Player" instance=ExtResource("2_qgqwx")]
+[node name="Interfaz_game" parent="CanvasHUD/CanvasPlayer/HUD_Player" node_paths=PackedStringArray("panel_stamina", "compass") instance=ExtResource("2_qgqwx")]
 layout_mode = 1
+panel_stamina = NodePath("../PanelStamina")
+compass = NodePath("../Compass")
 
 [node name="PanelStamina" type="Panel" parent="CanvasHUD/CanvasPlayer/HUD_Player"]
 layout_mode = 0
